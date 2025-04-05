@@ -1,0 +1,162 @@
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background-color: #2b2b2b;
+  padding: 15px 0;
+  margin-bottom: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: #ff4d4d;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Headings */
+h1 {
+  color: #ff4d4d;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #ff6666;
+  margin-bottom: 15px;
+}
+
+/* Links */
+a {
+  color: #ff4d4d;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+}
+
+li {
+  margin: 10px 0;
+  padding: 5px;
+  background-color: #2b2b2b;
+  border-radius: 3px;
+}
+
+/* Forms */
+.field {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #ff6666;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+textarea {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #e0e0e0;
+  padding: 8px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 3px;
+}
+
+input[type="submit"] {
+  background-color: #ff4d4d;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+input[type="submit"]:hover {
+  background-color: #cc0000;
+}
+
+/* Flash Messages */
+.notice, .alert {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.notice {
+  background-color: #2d662d;
+}
+
+.alert {
+  background-color: #662d2d;
+}
+
+/* Errors */
+.error_messages {
+  color: #ff4d4d;
+  margin-bottom: 20px;
+}
+
+/* Chat */
+#messages {
+  background-color: #2b2b2b;
+  padding: 15px;
+  border-radius: 5px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+#messages p {
+  margin: 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+  nav a {
+    margin: 5px 0;
+  }
+}

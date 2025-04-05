@@ -1,0 +1,12 @@
+<h1>Your Groups</h1>
+<% if @groups.any? %>
+  <ul>
+    <% @groups.each do |group| %>
+      <li><%= link_to "#{group.name} (Created by: #{group.creator.name})", group_path(group) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No groups yet. <%= link_to "Create one", new_group_path %>!</p>
+<% end %>
+<%= link_to "New Group", new_group_path %>
+<%= link_to "Sign Out", destroy_user_session_path, data: { "turbo-method": :delete } %>

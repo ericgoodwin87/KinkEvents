@@ -1,0 +1,11 @@
+<h1>Invite to <%= @group.name %></h1>
+<%= form_with(model: @invitation, url: group_invitations_path(@group)) do |f| %>
+  <div class="field">
+    <%= f.label :user_id, "Invite User" %><br />
+    <%= f.collection_select :user_id, User.where.not(id: @group.members.pluck(:id) + [@group.creator_id]), :id, :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Send Invite" %>
+  </div>
+<% end %>
+<%= link_to "Back to Group", @group %>

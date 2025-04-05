@@ -1,0 +1,31 @@
+<h1><%= @group.name %></h1>
+<p>Created by: <%= @group.creator.name %></p>
+<% if @group.creator == current_user %>
+  <%= link_to "Invite Members", new_group_invitation_path(@group) %>
+<% end %>
+
+<h2>Events</h2>
+<% if @events.any? %>
+  <ul>
+    <% @events.each do |event| %>
+      <li><%= event.name %> - <%= event.date.strftime("%B %d, %Y %I:%M %p") %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No events yet.</p>
+<% end %>
+<%= link_to "New Event", new_group_event_path(@group) %>
+
+<h2>Chat</h2>
+<div id="messages">
+  <%= render @messages %>
+</div>
+<%= form_with(model: [@group, @message], url: group_messages_path(@group), id: "new_message", data: { turbo: "true", group_id: @group.id }) do |f| %>
+  <div class="field">
+    <%= f.label :content, "Message" %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Send" %>
+  </div>
+<% end %>

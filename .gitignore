@@ -1,0 +1,31 @@
+# Rails
+*.rbc
+capybara-*.html
+log/*
+tmp/*
+*.sqlite3
+db/*.sqlite3-journal
+public/system/*
+coverage/*
+rerun.txt
+pickle-email-*.html
+
+# Ruby
+*.gem
+*.lock
+.bundle
+vendor/bundle
+vendor/cache
+
+# Node/Yarn
+node_modules/
+yarn-error.log
+
+# Environment
+.env
+config/master.key
+config/credentials.yml.enc
+
+# macOS/Windows
+.DS_Store
+Thumbs.db

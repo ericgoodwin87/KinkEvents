@@ -1,0 +1,16 @@
+<h1>My Groups</h1>
+<ul>
+  <% @groups.each do |group| %>
+    <li><%= link_to group.name, group %></li>
+  <% end %>
+</ul>
+<h2>Pending Invitations</h2>
+<ul>
+  <% current_user.memberships.where(accepted: false).each do |membership| %>
+    <li>
+      <%= membership.group.name %>
+      <%= button_to "Accept", accept_group_invitation_path(membership.group, membership), method: :patch %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "New Group", new_group_path %>

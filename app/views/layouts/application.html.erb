@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "KinkEvents" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= javascript_include_tag "application", type: "module", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <%= link_to "KinkEvents", root_path %>
+        <% if user_signed_in? %>
+          <%= link_to current_user.name, user_path(current_user) %>
+          <%= link_to "Groups", groups_path %>
+          <%= link_to "Sign Out", destroy_user_session_path, data: { "turbo-method": :delete } %>
+        <% else %>
+          <%= link_to "Sign In", new_user_session_path %>
+          <%= link_to "Sign Up", new_user_registration_path %>
+        <% end %>
+      </nav>
+    </header>
+    <div class="container">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+<h1>Welcome to KinkEvents</h1>
+<% if user_signed_in? %>
+  <p>Welcome back! Check out your <%= link_to "profile", user_path(current_user) %> or <%= link_to "groups", groups_path %>.</p>
+<% else %>
+  <p>Join the community—<%= link_to "sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>.</p>
+<% end %>
