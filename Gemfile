@@ -66,5 +66,5 @@ end
 
 gem 'redis', '~> 5.0'
 group :test do
-  gem 'rspec-rails', '~> 7.0'
+  gem 'rspec-rails', '~> 8.0'
 end
